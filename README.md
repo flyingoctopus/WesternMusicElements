@@ -5,6 +5,13 @@
 - Uses ARC
 
 
+## Mark Wheeler's fork:
+This fork is primarily for use in a project I'm working on but will include useful changes. Here's a summary of what's different:
+- Middle C is now C3 (as it is in Ableton Live)
+- You can specify flat notes
+- Accidentals use correct unicode characters ♯ and ♭
+- Minor tweaks to the list of scales
+
 
 ## Quick Start:
 
