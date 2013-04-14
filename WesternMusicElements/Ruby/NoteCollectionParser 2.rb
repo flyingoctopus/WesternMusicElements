@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 
-pathToWMRubyDirectory = File.join('/Volumes/Macintosh HD/Documents/Projects/Sequencer/05 Build/WesternMusicElements/','''WesternMusicElements','Ruby')
+pathToWMRubyDirectory = File.join(ENV['PROJECT_DIR'],'WesternMusicElements','Ruby')
 
 require File.join(pathToWMRubyDirectory,'WMRubyData')
 
@@ -27,9 +27,9 @@ class OBJCKey
             type = ScaleTypeString
         end
         out_string << "static " << type << " "
-        out_string << "*#{type}"<< camelcasify(s.delete("^a-zA-Z0-9 "))
-        out_string << " __unused = " << "@\"#{s}\";"
-        out_string
+        out_string << "*#{type}"<< camelcasify(s)
+        out_string << " = " << "@\"#{s}\";"
+        out_string      
     end
     
     def camelcasify s
@@ -44,13 +44,13 @@ end
 #Export chords to json
 
 File.open(File.join(pathToWMRubyDirectory,"chords.json"),"w") do |f|
-    CHORDS.to_json.each_line { |l| f << l.to_s << "\n" }
+    CHORDS.to_json.each { |l| f << l.to_s << "\n" }
 end
 
 #Export scales  to json
 
 File.open(File.join(pathToWMRubyDirectory,"scales.json"),"w") do |f|
-    SCALES.to_json.each_line { |l| f << l.to_s << "\n" }
+    SCALES.to_json.each { |l| f << l.to_s << "\n" }
 end
 
 
